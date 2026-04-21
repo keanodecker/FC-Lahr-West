@@ -1,6 +1,7 @@
 'use client';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import ScrollTriggerFadeIn from './ScrollTriggerFadeIn';
 
 const faqs = [
   {
@@ -42,29 +43,23 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="bg-accent text-accent-foreground min-h-screen py-20 md:py-28">
+    <section className="py-16 md:py-20 bg-background">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">FAQ</h1>
-          <p className="text-accent-foreground/70 text-lg">
-            Häufig gestellte Fragen – hier findest du schnelle Antworten.
-          </p>
-        </div>
-
         <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border border-white/10 rounded-xl px-6 bg-white/5 hover:bg-white/10 transition-colors duration-200"
-            >
-              <AccordionTrigger className="text-base font-semibold text-accent-foreground hover:no-underline py-5 [&>svg]:text-primary [&>svg]:h-5 [&>svg]:w-5">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-accent-foreground/70 leading-relaxed pb-5 text-sm md:text-base">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <ScrollTriggerFadeIn key={index} delay={index * 0.05}>
+              <AccordionItem
+                value={`item-${index}`}
+                className="border border-border rounded-xl px-6 bg-card shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200"
+              >
+                <AccordionTrigger className="text-base font-semibold text-foreground hover:no-underline py-5 [&>svg]:text-primary [&>svg]:h-5 [&>svg]:w-5">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5 text-sm md:text-base">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </ScrollTriggerFadeIn>
           ))}
         </Accordion>
       </div>
