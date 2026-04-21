@@ -207,6 +207,23 @@ export default function ContactSection() {
             </div>
           </ScrollTriggerSlideIn>
         </div>
+
+        <div className="mt-12">
+          <ScrollTriggerFadeIn>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-border h-80">
+              <iframe
+                title="FC Lahr-West Standort"
+                src="https://maps.google.com/maps?q=Flugplatzstra%C3%9Fe+105,+77933+Lahr&output=embed&hl=de"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </ScrollTriggerFadeIn>
+        </div>
       </div>
     </section>
   );

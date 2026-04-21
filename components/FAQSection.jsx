@@ -38,11 +38,6 @@ const faqs = [
     answer:
       'Unsere Herrenmannschaften sind für Spieler ab 18 Jahren offen. Für jüngere Fußballbegeisterte empfehlen wir den Kontakt zu benachbarten Vereinen mit Jugendabteilungen, wobei wir gerne weiterhelfen können.',
   },
-  {
-    question: 'Was kostet die Mitgliedschaft?',
-    answer:
-      'Die genauen Mitgliedsbeiträge erfährst du direkt bei uns – kontaktiere uns per Telefon oder E-Mail. Wir halten die Beiträge so gestaltet, dass Fußball für jeden zugänglich bleibt.',
-  },
 ];
 
 export default function FAQSection() {
