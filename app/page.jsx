@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import TeamsSection from '@/components/TeamsSection';
-import NextMatchSection from '@/components/NextMatchSection';
 import StatisticsSection from '@/components/StatisticsSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -28,7 +27,6 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <TeamsSection />
-      <NextMatchSection />
       <StatisticsSection />
       <ContactSection />
     </div>

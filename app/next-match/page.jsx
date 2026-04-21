@@ -1,4 +1,3 @@
-import NextMatchSection from '@/components/NextMatchSection';
 import FussballDeIntegration from '@/components/FussballDeIntegration';
 
 export const metadata = {
@@ -19,8 +18,6 @@ export default function NextMatchPage() {
           </p>
         </div>
       </div>
-
-      <NextMatchSection />
       <FussballDeIntegration />
     </div>
   );

@@ -24,7 +24,6 @@ export default function Header() {
     { label: 'Startseite', href: '/' },
     { label: 'Über uns', href: '/about' },
     { label: 'Mannschaften', href: '/teams' },
-    { label: 'Nächste Spiele', href: '/next-match' },
     { label: 'Statistik', href: '/statistics' },
     { label: 'FAQ', href: '/faq' },
   ];

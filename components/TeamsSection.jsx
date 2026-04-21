@@ -31,11 +31,11 @@ export default function TeamsSection() {
           </h2>
         </ScrollTriggerFadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {teams.map((team, index) => (
-            <ScrollTriggerFadeIn key={team.name} delay={index * 0.2}>
-              <HoverGlowCard className="bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300">
-                <div className="relative h-64">
+            <ScrollTriggerFadeIn key={team.name} delay={index * 0.2} className="h-full">
+              <HoverGlowCard className="bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 h-full flex flex-col">
+                <div className="relative h-64 flex-shrink-0">
                   <img
                     src={team.image}
                     alt={`${team.name} team huddle on football field`}
@@ -50,7 +50,7 @@ export default function TeamsSection() {
                     <h3 className="text-2xl font-bold text-white">{team.name}</h3>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex-grow">
                   <p className="text-muted-foreground leading-relaxed">{team.description}</p>
                 </div>
               </HoverGlowCard>
