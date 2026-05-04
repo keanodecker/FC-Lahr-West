@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { X, Shield, Settings } from 'lucide-react';
 
@@ -41,9 +42,6 @@ export default function CookieBanner() {
   useEffect(() => {
     setMounted(true);
     const consent = loadConsent();
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('[CookieBanner] init, consent =', consent);
-    }
     if (!consent) {
       setShow(true);
     } else {
@@ -69,7 +67,6 @@ export default function CookieBanner() {
   }, []);
 
   const acceptAll = () => {
-    if (process.env.NODE_ENV !== 'production') console.log('[CookieBanner] acceptAll clicked');
     saveConsent({ necessary: true, functional: true, analytics: true, marketing: true });
     setFunctional(true);
     setAnalytics(true);
@@ -79,7 +76,6 @@ export default function CookieBanner() {
   };
 
   const rejectAll = () => {
-    if (process.env.NODE_ENV !== 'production') console.log('[CookieBanner] rejectAll clicked');
     saveConsent({ necessary: true, functional: false, analytics: false, marketing: false });
     setFunctional(false);
     setAnalytics(false);
@@ -89,7 +85,6 @@ export default function CookieBanner() {
   };
 
   const saveCustom = () => {
-    if (process.env.NODE_ENV !== 'production') console.log('[CookieBanner] saveCustom clicked');
     saveConsent({ necessary: true, functional, analytics, marketing });
     setConfigOpen(false);
     setShow(false);
@@ -97,52 +92,57 @@ export default function CookieBanner() {
 
   if (!mounted || !show) return null;
 
-  return (
+  const content = (
     <>
       {!configOpen && (
         <div
-          className="cookie-banner-wrapper fixed bottom-0 left-0 right-0 z-[2147483647] p-4 md:p-6 pointer-events-none"
-          style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}
+          style={{
+            position: 'fixed',
+            bottom: 'max(1rem, env(safe-area-inset-bottom))',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 2147483647,
+            width: 'calc(100% - 2rem)',
+            maxWidth: '28rem',
+            pointerEvents: 'auto',
+          }}
         >
-          <div className="cookie-banner-card max-w-5xl mx-auto bg-background border border-border rounded-2xl shadow-2xl p-5 md:p-6 pointer-events-auto">
-            <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-              <div className="flex items-start gap-3 flex-1">
-                <Shield className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-sm mb-1">Wir verwenden Cookies</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Wir nutzen Cookies, um Ihnen die bestmögliche Nutzererfahrung zu bieten und unsere
-                    Website kontinuierlich zu verbessern. Weitere Informationen finden Sie in unserer{' '}
-                    <Link href="/datenschutz" className="text-primary hover:underline">
-                      Datenschutzerklärung
-                    </Link>
-                    .
-                  </p>
-                </div>
+          <div className="bg-background border border-border rounded-2xl shadow-2xl p-4">
+            <div className="flex items-start gap-2 mb-3">
+              <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="font-semibold text-sm mb-1">Wir verwenden Cookies</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Wir nutzen Cookies, um die Nutzererfahrung zu verbessern. Mehr in der{' '}
+                  <Link href="/datenschutz" className="text-primary hover:underline">
+                    Datenschutzerklärung
+                  </Link>
+                  .
+                </p>
               </div>
-              <div className="grid grid-cols-3 gap-2 lg:flex lg:items-center lg:gap-3 lg:flex-shrink-0">
-                <button
-                  type="button"
-                  onClick={rejectAll}
-                  className="px-4 py-2.5 text-sm font-medium rounded-xl border border-border hover:bg-muted transition-colors whitespace-nowrap"
-                >
-                  Reject all
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setConfigOpen(true)}
-                  className="px-4 py-2.5 text-sm font-medium rounded-xl border border-primary text-primary hover:bg-primary/10 transition-colors whitespace-nowrap"
-                >
-                  Configure
-                </button>
-                <button
-                  type="button"
-                  onClick={acceptAll}
-                  className="px-4 py-2.5 text-sm font-medium rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors whitespace-nowrap"
-                >
-                  Accept all
-                </button>
-              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={rejectAll}
+                className="px-2 py-2 text-xs font-medium rounded-lg border border-border hover:bg-muted transition-colors"
+              >
+                Reject all
+              </button>
+              <button
+                type="button"
+                onClick={() => setConfigOpen(true)}
+                className="px-2 py-2 text-xs font-medium rounded-lg border border-primary text-primary hover:bg-primary/10 transition-colors"
+              >
+                Configure
+              </button>
+              <button
+                type="button"
+                onClick={acceptAll}
+                className="px-2 py-2 text-xs font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Accept all
+              </button>
             </div>
           </div>
         </div>
@@ -150,7 +150,17 @@ export default function CookieBanner() {
 
       {configOpen && (
         <div
-          className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 2147483647,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1rem',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(4px)',
+          }}
           onClick={() => setConfigOpen(false)}
         >
           <div
@@ -232,6 +242,8 @@ export default function CookieBanner() {
       )}
     </>
   );
+
+  return createPortal(content, document.body);
 }
 
 type CategoryToggleProps = {
