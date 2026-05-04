@@ -1,4 +1,11 @@
+'use client';
+
 import { Mail, Phone, MapPin, Instagram, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
+
+function openCookieBanner() {
+  window.dispatchEvent(new Event('openCookieBanner'));
+}
 
 export default function Footer() {
   const mapsUrl = 'https://maps.google.com/?q=Flugplatzstraße+105,+77933+Lahr';
@@ -72,8 +79,14 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
             <p>&copy; 2026 FC Lahr-West 1975 e.V. Alle Rechte vorbehalten.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-primary transition-all duration-200">Datenschutz</a>
+              <Link href="/datenschutz" className="hover:text-primary transition-all duration-200">Datenschutz</Link>
               <a href="#" className="hover:text-primary transition-all duration-200">Impressum</a>
+              <button
+                onClick={openCookieBanner}
+                className="hover:text-primary transition-all duration-200"
+              >
+                Cookie-Einstellungen
+              </button>
             </div>
           </div>
         </div>

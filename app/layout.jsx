@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import ParticleSystem from '@/components/ParticleSystem';
 import ScrollBlurOverlay from '@/components/ScrollBlurOverlay';
 import { Toaster } from '@/components/ui/sonner';
+import CookieBanner from '@/components/CookieBanner';
 
 export const metadata = {
   title: 'FC Lahr-West 1975 e.V. - Leidenschaft. Teamgeist. Heimat.',
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
             <main className="flex-grow relative z-10">{children}</main>
             <Footer />
             <Toaster />
+            <CookieBanner />
           </div>
         </Providers>
       </body>
