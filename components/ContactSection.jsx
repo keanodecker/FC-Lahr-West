@@ -30,11 +30,24 @@ export default function ContactSection() {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Form data:', data);
-    toast.success('Nachricht gesendet');
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        toast.success('Nachricht gesendet! Wir melden uns so bald wie möglich.');
+        form.reset();
+      } else {
+        toast.error('Fehler beim Senden. Bitte versuche es später erneut.');
+      }
+    } catch {
+      toast.error('Fehler beim Senden. Bitte versuche es später erneut.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
