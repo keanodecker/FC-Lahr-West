@@ -89,7 +89,7 @@ export default function DatenschutzPage() {
           <p className="mt-6 text-sm text-muted-foreground">
             Ihre Cookie-Einstellungen werden im lokalen Speicher (localStorage) Ihres Browsers unter
             dem Schlüssel <code className="bg-muted px-1 py-0.5 rounded text-xs">cookieConsent</code> gespeichert.
-            Sie können Ihre Einwilligung jederzeit über den Link „Cookie-Einstellungen" im Footer
+            Sie können Ihre Einwilligung jederzeit über den Link &bdquo;Cookie-Einstellungen&ldquo; im Footer
             dieser Website widerrufen oder anpassen.
           </p>
         </Section>
@@ -138,7 +138,7 @@ export default function DatenschutzPage() {
             Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit zu
             widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der
             Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt. Ihre
-            Cookie-Einstellungen können Sie jederzeit über den Link „Cookie-Einstellungen" im Footer
+            Cookie-Einstellungen können Sie jederzeit über den Link &bdquo;Cookie-Einstellungen&ldquo; im Footer
             dieser Website anpassen oder widerrufen.
           </p>
         </Section>
