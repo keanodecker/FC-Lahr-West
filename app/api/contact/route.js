@@ -20,7 +20,7 @@ export async function POST(request) {
     }
 
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL,
+      from: 'FC Lahr-West <kontakt@fclahrwest.de>',
       to: 'fclahrwest@aol.com',
       replyTo: email,
       subject: `Neue Kontaktanfrage von ${name}`,
