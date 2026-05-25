@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -135,6 +136,12 @@ export default function ContactSection() {
                       </span>
                       <ExternalLink className="h-4 w-4" />
                     </a>
+                    <Link
+                      href="/vereinshaus"
+                      className="block mt-3 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Vereinsheim auf Anfrage zu mieten →
+                    </Link>
                   </div>
                 </div>
               </div>
