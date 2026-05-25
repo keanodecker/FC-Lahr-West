@@ -22,6 +22,7 @@ export default function Header() {
 
   const navLinks = [
     { label: 'Startseite', href: '/' },
+    { label: 'Mitglied werden', href: '/mitglied-werden' },
     { label: 'Über uns', href: '/about' },
     { label: 'Mannschaften', href: '/teams' },
     { label: 'Statistik', href: '/statistics' },
