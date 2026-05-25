@@ -100,9 +100,10 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium mb-1">Telefon</p>
-                    <a href="tel:+4978214913" className="text-primary hover:underline">
-                      07821 4913
+                    <a href="tel:+4917621050524" className="text-primary hover:underline">
+                      0176 21050524
                     </a>
+                    <p className="text-xs text-muted-foreground mt-1">Trainer Andi Paschke</p>
                   </div>
                 </div>
 
