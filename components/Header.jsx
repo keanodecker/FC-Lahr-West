@@ -43,7 +43,7 @@ export default function Header() {
             aria-label="FC Lahr-West 1975 e.V. - Zur Startseite"
           >
             <img
-              src="https://horizons-cdn.hostinger.com/5253aa88-5df7-412d-839f-0a29150c6335/a050f4f0a8ae68318c3faec4baec3687.png"
+              src="/logo.png"
               alt="FC Lahr-West 1975 e.V. Logo"
               className="h-12 md:h-16 w-auto object-contain"
             />
@@ -89,7 +89,7 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px]">
               <div className="flex flex-col gap-6 mt-8">
                 <img
-                  src="https://horizons-cdn.hostinger.com/5253aa88-5df7-412d-839f-0a29150c6335/a050f4f0a8ae68318c3faec4baec3687.png"
+                  src="/logo.png"
                   alt="FC Lahr-West 1975 e.V. Logo"
                   className="h-12 w-auto object-contain"
                 />
