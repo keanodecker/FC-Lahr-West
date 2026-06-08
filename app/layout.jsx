@@ -11,10 +11,6 @@ export const metadata = {
   title: 'FC Lahr-West 1975 e.V. - Leidenschaft. Teamgeist. Heimat.',
   description:
     'FC Lahr-West 1975 e.V. - Fußballverein in Lahr/Schwarzwald. Mitglied im Südbadischen Fußballverband. Zwei Mannschaften, eine Leidenschaft.',
-  icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
-  },
 };
 
 export default function RootLayout({ children }) {
