@@ -12,20 +12,16 @@ export const metadata = {
 
 const galleryImages = [
   {
-    src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&q=80',
-    alt: 'Innenraum Vereinsheim (Platzhalter)',
+    src: '/vereinshaus-1.jpg',
+    alt: 'Vereinsheim Lahr-West – festlich eingedeckter Saal mit Theke',
   },
   {
-    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
-    alt: 'Bereich für Feiern (Platzhalter)',
+    src: '/vereinshaus-2.jpg',
+    alt: 'Vereinsheim Lahr-West – Saal mit gedeckten Tischen',
   },
   {
-    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=80',
-    alt: 'Außenbereich (Platzhalter)',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80',
-    alt: 'Theke und Bar (Platzhalter)',
+    src: '/vereinshaus-3.jpg',
+    alt: 'Vereinsheim Lahr-West – Festtafel mit Dekoration',
   },
 ];
 
@@ -44,8 +40,7 @@ export default function VereinshausPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              'url(https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=80)',
+            backgroundImage: 'url(/vereinshaus-1.jpg)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
@@ -94,9 +89,6 @@ export default function VereinshausPage() {
               </ScrollTriggerFadeIn>
             ))}
           </div>
-          <p className="text-center text-xs text-muted-foreground mt-6 italic">
-            Bilder sind Platzhalter und werden bald durch echte Aufnahmen ersetzt.
-          </p>
         </div>
       </section>
 
