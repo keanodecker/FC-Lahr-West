@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1566481436626-b680fe2e367f)',
+          backgroundImage: 'url(/hero-team.jpg)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />

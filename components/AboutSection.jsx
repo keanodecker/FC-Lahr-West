@@ -59,8 +59,8 @@ export default function AboutSection() {
           <ScrollTriggerSlideIn direction="right">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1700917488610-2b4abd28e5a3"
-                alt="Local football stadium with green grass field"
+                src="/vereinsheim-kiosk.jpg"
+                alt="Vereinsheim-Kiosk am Sportplatz Lahr-West"
                 className="w-full h-[400px] md:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/60 to-transparent" />
