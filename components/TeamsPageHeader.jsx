@@ -8,7 +8,7 @@ export default function TeamsPageHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <motion.img
-            src="https://horizons-cdn.hostinger.com/5253aa88-5df7-412d-839f-0a29150c6335/a050f4f0a8ae68318c3faec4baec3687.png"
+            src="/logo.png"
             alt="FC Lahr-West 1975 e.V. Logo"
             className="h-24 md:h-32 w-auto object-contain"
             initial={{ opacity: 0, scale: 0.9 }}
