@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import StaggeredLetterReveal from './StaggeredLetterReveal';
+import GrungeDivider from './GrungeDivider';
 
 export default function HeroSection() {
   const handleScroll = (sectionId) => {
@@ -67,11 +68,15 @@ export default function HeroSection() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
+        className="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
         onClick={() => handleScroll('#about')}
       >
         <ChevronDown className="h-8 w-8 text-white drop-shadow-md" />
       </motion.div>
+
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <GrungeDivider />
+      </div>
     </section>
   );
 }
