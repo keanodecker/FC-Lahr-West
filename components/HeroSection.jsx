@@ -5,7 +5,6 @@ import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import StaggeredLetterReveal from './StaggeredLetterReveal';
-import GrungeDivider from './GrungeDivider';
 
 export default function HeroSection() {
   const handleScroll = (sectionId) => {
@@ -17,14 +16,21 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Unscharfer Hintergrund füllt die Ränder, damit kein leerer Balken entsteht */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center scale-110 blur-2xl"
         style={{
           backgroundImage: 'url(/hero-team.jpg)',
         }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-      </div>
+      />
+      {/* Vollständiges, scharfes Foto – komplett sichtbar inkl. Logo */}
+      <div
+        className="absolute inset-0 bg-contain bg-no-repeat bg-center"
+        style={{
+          backgroundImage: 'url(/hero-team.jpg)',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-16">
         <StaggeredLetterReveal
@@ -68,15 +74,11 @@ export default function HeroSection() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
         onClick={() => handleScroll('#about')}
       >
         <ChevronDown className="h-8 w-8 text-white drop-shadow-md" />
       </motion.div>
-
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <GrungeDivider />
-      </div>
     </section>
   );
 }

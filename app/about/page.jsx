@@ -1,5 +1,4 @@
 import AboutSection from '@/components/AboutSection';
-import GrungeDivider from '@/components/GrungeDivider';
 
 export const metadata = {
   title: 'Über uns | FC Lahr-West 1975 e.V.',
@@ -10,8 +9,8 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="pt-20 min-h-screen bg-background">
-      <div className="bg-muted pt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-12">
+      <div className="bg-muted py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Vereinsgeschichte
           </h1>
@@ -20,7 +19,6 @@ export default function AboutPage() {
             unsere Werte und unsere Vision für die Zukunft.
           </p>
         </div>
-        <GrungeDivider />
       </div>
 
       <AboutSection />
