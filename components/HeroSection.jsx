@@ -15,18 +15,17 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Foto randlos (bg-cover) und nach unten verankert, sodass das
-          Logo unten vollständig bis zum Bannerende sichtbar bleibt */}
-      <div
-        className="absolute inset-0 bg-cover bg-bottom"
-        style={{
-          backgroundImage: 'url(/hero-team.jpg)',
-        }}
+    <section id="hero" className="relative w-full overflow-hidden">
+      {/* Ganzes Foto randlos in voller Breite – Bäume oben, Logo/Banner
+          unten komplett sichtbar. Die Bildhöhe bestimmt die Sektionshöhe. */}
+      <img
+        src="/hero-team.jpg"
+        alt="Mannschaft des FC Lahr-West 1975 e.V."
+        className="block w-full h-auto"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-16">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 mt-8">
         <StaggeredLetterReveal
           text="FC Lahr-West 1975"
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 text-balance drop-shadow-lg"
