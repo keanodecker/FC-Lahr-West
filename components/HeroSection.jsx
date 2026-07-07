@@ -16,21 +16,15 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Unscharfer Hintergrund füllt die Ränder, damit kein leerer Balken entsteht */}
+      {/* Foto randlos (bg-cover) und nach unten verankert, sodass das
+          Logo unten vollständig bis zum Bannerende sichtbar bleibt */}
       <div
-        className="absolute inset-0 bg-cover bg-center scale-110 blur-2xl"
+        className="absolute inset-0 bg-cover bg-bottom"
         style={{
           backgroundImage: 'url(/hero-team.jpg)',
         }}
       />
-      {/* Vollständiges, scharfes Foto – komplett sichtbar inkl. Logo */}
-      <div
-        className="absolute inset-0 bg-contain bg-no-repeat bg-center"
-        style={{
-          backgroundImage: 'url(/hero-team.jpg)',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-16">
         <StaggeredLetterReveal
