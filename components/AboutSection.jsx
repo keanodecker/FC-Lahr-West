@@ -61,9 +61,9 @@ export default function AboutSection() {
               <img
                 src="/vereinsheim-kiosk.jpg"
                 alt="Vereinsheim-Kiosk am Sportplatz Lahr-West"
-                className="w-full h-[400px] md:h-[500px] object-cover"
+                className="w-full h-[400px] md:h-[500px] object-cover brightness-125 contrast-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-accent/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/40 to-transparent" />
             </div>
           </ScrollTriggerSlideIn>
         </div>
