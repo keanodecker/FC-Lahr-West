@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import TrainersSection from '@/components/TrainersSection';
 import TeamsSection from '@/components/TeamsSection';
 import StatisticsSection from '@/components/StatisticsSection';
 import ContactSection from '@/components/ContactSection';
@@ -26,6 +27,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       <HeroSection />
       <AboutSection />
+      <TrainersSection />
       <TeamsSection />
       <StatisticsSection />
       <ContactSection />
