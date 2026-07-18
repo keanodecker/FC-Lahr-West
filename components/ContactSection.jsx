@@ -100,10 +100,10 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium mb-1">Telefon</p>
-                    <a href="tel:+4917621050524" className="text-primary hover:underline">
-                      0176 21050524
+                    <a href="tel:+491713274609" className="text-primary hover:underline">
+                      0171 3274609
                     </a>
-                    <p className="text-xs text-muted-foreground mt-1">Trainer Andi Paschke</p>
+                    <p className="text-xs text-muted-foreground mt-1">Trainer Alexandro Roccaro</p>
                   </div>
                 </div>
 
@@ -113,8 +113,8 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium mb-1">E-Mail</p>
-                    <a href="mailto:fclahrwest@aol.com" className="text-primary hover:underline">
-                      fclahrwest@aol.com
+                    <a href="mailto:alex.roccaro@web.de" className="text-primary hover:underline">
+                      alex.roccaro@web.de
                     </a>
                   </div>
                 </div>
