@@ -97,7 +97,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <MediaCastleSignature variant="dark" size={13} />
+            <MediaCastleSignature variant="dark" size={17} />
           </div>
         </div>
       </div>
