@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin, Instagram, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import MediaCastleSignature from './MediaCastleSignature';
 
 function openCookieBanner() {
   window.dispatchEvent(new Event('openCookieBanner'));
@@ -93,6 +94,10 @@ export default function Footer() {
                 Cookie-Einstellungen
               </button>
             </div>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <MediaCastleSignature variant="dark" size={13} />
           </div>
         </div>
       </div>
