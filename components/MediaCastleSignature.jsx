@@ -18,7 +18,7 @@ export default function MediaCastleSignature({ variant = 'dark', size = 13 }) {
 
   return (
     <a
-      href="https://media-castle.de"
+      href="https://www.media-castle.com"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="visualized by media castle – zur Media-Castle-Website"
