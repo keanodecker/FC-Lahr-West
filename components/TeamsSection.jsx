@@ -41,7 +41,9 @@ export default function TeamsSection() {
                     alt={`Mannschaftsfoto ${team.name} des FC Lahr-West 1975 e.V.`}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent" />
+                  {/* Nur der untere Bereich wird abgedunkelt, damit Liga und
+                      Mannschaftsname lesbar bleiben – das Foto selbst bleibt frei. */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-accent/85 via-accent/40 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Users className="h-5 w-5 text-primary" />

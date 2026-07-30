@@ -10,15 +10,24 @@ const RECIPIENT = 'fclahrwest@aol.com';
 // Datei im Anhang nochmal um ca. 33 % auf, deshalb bleiben wir darunter.
 export const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 
-const ALLOWED_TYPES = new Set([
-  'image/png',
-  'image/jpeg',
-  'image/webp',
-  'image/svg+xml',
-  'application/pdf',
-  'application/postscript', // .ai / .eps
-  'application/zip',
+// Geprüft wird über die Dateiendung, nicht über den MIME-Typ: Browser melden
+// für Druckdaten wie .ai, .eps oder .cdr je nach System einen leeren oder
+// generischen Typ (application/octet-stream). Eine reine MIME-Prüfung würde
+// entweder diese Formate blockieren oder – wenn man leere Typen durchlässt –
+// beliebige Dateien akzeptieren.
+const ALLOWED_EXTENSIONS = new Set([
+  // Vektor / Druckdaten (bevorzugt)
+  'ai', 'eps', 'pdf', 'svg', 'cdr',
+  // Pixeldaten
+  'png', 'jpg', 'jpeg', 'webp', 'tif', 'tiff',
+  // Sammelcontainer
+  'zip',
 ]);
+
+function extensionOf(filename) {
+  const match = /\.([a-z0-9]+)$/i.exec(String(filename || ''));
+  return match ? match[1].toLowerCase() : '';
+}
 
 const INTEREST_LABELS = {
   trikot: 'Trikotwerbung',
@@ -73,7 +82,7 @@ export async function POST(request) {
     const attachments = [];
 
     for (const file of files) {
-      if (file.type && !ALLOWED_TYPES.has(file.type)) {
+      if (!ALLOWED_EXTENSIONS.has(extensionOf(file.name))) {
         return Response.json(
           { error: `Dateityp nicht erlaubt: ${file.name}` },
           { status: 400 }

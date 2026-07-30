@@ -20,12 +20,14 @@ export default function StatisticsSection() {
           backgroundImage: 'url(/team-wide.jpg)',
         }}
       >
-        <div className="absolute inset-0 bg-accent/90" />
+        {/* Deutlich transparenter als zuvor (war /90), damit das Mannschaftsfoto
+            sichtbar bleibt. Die Kacheln bringen ihren eigenen Kontrast mit. */}
+        <div className="absolute inset-0 bg-accent/65" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollTriggerFadeIn>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance text-accent-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance text-accent-foreground drop-shadow-lg">
             Unsere Zahlen
           </h2>
         </ScrollTriggerFadeIn>
@@ -35,7 +37,7 @@ export default function StatisticsSection() {
             const Icon = stat.icon;
             return (
               <ScrollTriggerFadeIn key={stat.label} delay={index * 0.15}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 h-full">
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 text-center border border-white/25 h-full shadow-lg">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-xl mb-4">
                     <Icon className="h-8 w-8 text-primary-foreground" />
                   </div>

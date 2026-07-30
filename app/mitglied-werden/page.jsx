@@ -31,7 +31,7 @@ export default function MitgliedWerdenPage() {
               'url(/team-wide.jpg)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <ScrollTriggerFadeIn>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-10 text-balance leading-[1.05]">
@@ -208,7 +208,7 @@ export default function MitgliedWerdenPage() {
       {/* CTA */}
       <section className="py-20 md:py-24 bg-accent text-accent-foreground relative overflow-hidden">
         <div
-          className="absolute inset-0 opacity-20 bg-cover bg-center"
+          className="absolute inset-0 opacity-40 bg-cover bg-center"
           style={{
             backgroundImage:
               'url(/vereinsheim-kiosk.jpg)',

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Send, Upload, X, FileText } from 'lucide-react';
 
 const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
-const ACCEPT = '.png,.jpg,.jpeg,.webp,.svg,.pdf,.ai,.eps,.zip';
+const ACCEPT = '.ai,.eps,.pdf,.svg,.cdr,.png,.jpg,.jpeg,.webp,.tif,.tiff,.zip';
 
 const interests = [
   { value: 'trikot', label: 'Trikotwerbung' },
@@ -150,9 +150,20 @@ export default function SponsorForm() {
           <Upload className="h-6 w-6 text-primary mx-auto mb-2" />
           <span className="block text-sm font-medium">Dateien auswählen</span>
           <span className="block text-xs text-muted-foreground mt-1">
-            PNG, JPG, SVG, PDF, AI, EPS oder ZIP · zusammen max. 4 MB
+            AI, EPS, PDF, SVG, CDR, PNG, JPG, TIF oder ZIP · zusammen max. 4 MB
           </span>
         </button>
+
+        <div className="bg-muted/60 border border-border rounded-xl p-4 text-xs text-muted-foreground leading-relaxed">
+          <p className="font-medium text-foreground mb-1">Hinweis zu den Druckdaten</p>
+          Für Trikots und Werbebanden brauchen wir das Logo idealerweise als{' '}
+          <strong className="text-foreground">Vektordatei</strong> (AI, EPS, PDF oder SVG) –
+          nur die lässt sich verlustfrei auf jede Größe skalieren. Schriften bitte in Pfade
+          umwandeln und Farben möglichst in CMYK oder als HKS-/Pantone-Angabe.
+          <br />
+          Sie haben nur ein JPG oder PNG? Kein Problem – schicken Sie es einfach mit, wir
+          klären die Aufbereitung mit unserer Druckerei.
+        </div>
 
         <input
           ref={fileInputRef}
