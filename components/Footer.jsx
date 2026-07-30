@@ -72,9 +72,12 @@ export default function Footer() {
                   @fc_lahr_west
                 </a>
               </div>
-              <div className="text-sm opacity-80 pt-2">
-                <Link href="/vereinshaus" className="hover:text-primary transition-all duration-200">
+              <div className="text-sm opacity-80 pt-2 space-y-2">
+                <Link href="/vereinshaus" className="block hover:text-primary transition-all duration-200">
                   Vereinsheim mieten →
+                </Link>
+                <Link href="/sponsoren" className="block hover:text-primary transition-all duration-200">
+                  Sponsor werden →
                 </Link>
               </div>
             </div>

@@ -25,6 +25,7 @@ export default function Header() {
     { label: 'Mitglied werden', href: '/mitglied-werden' },
     { label: 'Über uns', href: '/about' },
     { label: 'Mannschaften', href: '/teams' },
+    { label: 'Sponsoren', href: '/sponsoren' },
     { label: 'FAQ', href: '/faq' },
   ];
 

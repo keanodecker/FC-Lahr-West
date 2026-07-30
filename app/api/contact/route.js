@@ -19,7 +19,7 @@ export async function POST(request) {
       return Response.json({ error: 'Fehlende Felder' }, { status: 400 });
     }
 
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: 'FC Lahr-West <noreply@fclahrwest.de>',
       to: 'fclahrwest@aol.com',
       replyTo: email,
@@ -49,6 +49,14 @@ export async function POST(request) {
         </div>
       `,
     });
+
+    // Das Resend-SDK wirft bei einem Fehlschlag keine Exception, sondern
+    // liefert ihn im error-Feld zurück. Ohne diese Prüfung würde der Absender
+    // eine Erfolgsmeldung sehen, obwohl die Mail nie rausgeht.
+    if (sendError) {
+      console.error('Resend error:', sendError);
+      return Response.json({ error: 'E-Mail konnte nicht gesendet werden' }, { status: 502 });
+    }
 
     return Response.json({ success: true });
   } catch (error) {
