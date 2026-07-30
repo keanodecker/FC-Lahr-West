@@ -28,7 +28,7 @@ export default function MitgliedWerdenPage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=80)',
+              'url(/team-wide.jpg)',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/80" />
@@ -88,8 +88,8 @@ export default function MitgliedWerdenPage() {
             <ScrollTriggerSlideIn direction="left">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1551958219-acbc608c6377?w=1200&q=80"
-                  alt="Mannschaft beim Training (Platzhalter)"
+                  src="/team-1-herren.jpg"
+                  alt="Mannschaft des FC Lahr-West 1975 e.V. auf dem Sportplatz"
                   className="w-full h-auto object-cover aspect-[4/3]"
                 />
               </div>
@@ -211,7 +211,7 @@ export default function MitgliedWerdenPage() {
           className="absolute inset-0 opacity-20 bg-cover bg-center"
           style={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1600&q=80)',
+              'url(/vereinsheim-kiosk.jpg)',
           }}
         />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

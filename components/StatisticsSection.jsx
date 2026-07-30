@@ -17,7 +17,7 @@ export default function StatisticsSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1700917488610-2b4abd28e5a3)',
+          backgroundImage: 'url(/team-wide.jpg)',
         }}
       >
         <div className="absolute inset-0 bg-accent/90" />

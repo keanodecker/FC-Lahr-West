@@ -10,14 +10,14 @@ const teams = [
     league: 'Kreisliga B Staffel III',
     description:
       'Unsere erste Mannschaft kämpft mit vollem Einsatz in der Kreisliga B.',
-    image: 'https://images.unsplash.com/photo-1529932892568-43f5d5c07da5',
+    image: '/team-1-herren.jpg',
   },
   {
     name: '2. Herren',
     league: 'Freundschaftsspiele',
     description:
       'Die zweite Mannschaft bestreitet regelmäßig Freundschaftsspiele und fördert den Teamgeist.',
-    image: 'https://images.unsplash.com/photo-1529932892568-43f5d5c07da5',
+    image: '/team-2-herren.jpg',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function TeamsSection() {
                 <div className="relative h-64 flex-shrink-0">
                   <img
                     src={team.image}
-                    alt={`${team.name} team huddle on football field`}
+                    alt={`Mannschaftsfoto ${team.name} des FC Lahr-West 1975 e.V.`}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent" />
