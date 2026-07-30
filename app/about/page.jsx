@@ -1,4 +1,5 @@
 import AboutSection from '@/components/AboutSection';
+import RoadmapSection from '@/components/RoadmapSection';
 
 export const metadata = {
   title: 'Über uns | FC Lahr-West 1975 e.V.',
@@ -41,6 +42,8 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
+
+      <RoadmapSection />
     </div>
   );
 }

@@ -2,12 +2,13 @@
 
 import ScrollTriggerFadeIn from './ScrollTriggerFadeIn';
 import AnimatedCounter from './AnimatedCounter';
-import { Trophy, Users, Calendar } from 'lucide-react';
+import { Trophy, Users, Calendar, Shield } from 'lucide-react';
 
 const stats = [
   { icon: Calendar, label: 'Gegründet', value: 1975, suffix: '' },
-  { icon: Users, label: 'Mannschaften', value: 2, suffix: '' },
-  { icon: Trophy, label: 'Mitglieder', value: 120, suffix: '+' },
+  { icon: Users, label: 'Mitglieder', value: 100, suffix: '' },
+  { icon: Shield, label: 'Mannschaften', value: 2, suffix: '' },
+  { icon: Trophy, label: 'Meistertitel', value: 2, suffix: '' },
 ];
 
 export default function StatisticsSection() {
@@ -29,17 +30,17 @@ export default function StatisticsSection() {
           </h2>
         </ScrollTriggerFadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <ScrollTriggerFadeIn key={stat.label} delay={index * 0.2}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20">
+              <ScrollTriggerFadeIn key={stat.label} delay={index * 0.15}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 h-full">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-xl mb-4">
                     <Icon className="h-8 w-8 text-primary-foreground" />
                   </div>
                   <div
-                    className="text-5xl md:text-6xl font-extrabold text-white mb-2"
+                    className="text-4xl md:text-5xl font-extrabold text-white mb-2"
                     style={{ fontVariantNumeric: 'tabular-nums' }}
                   >
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} />

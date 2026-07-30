@@ -6,6 +6,7 @@ import AboutSection from '@/components/AboutSection';
 import TrainersSection from '@/components/TrainersSection';
 import TeamsSection from '@/components/TeamsSection';
 import StatisticsSection from '@/components/StatisticsSection';
+import AchievementsSection from '@/components/AchievementsSection';
 import ContactSection from '@/components/ContactSection';
 
 export default function HomePage() {
@@ -30,6 +31,7 @@ export default function HomePage() {
       <TrainersSection />
       <TeamsSection />
       <StatisticsSection />
+      <AchievementsSection />
       <ContactSection />
     </div>
   );
