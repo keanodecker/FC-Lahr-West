@@ -1,9 +1,7 @@
 import { Resend } from 'resend';
+import { MAIL_FROM, MAIL_RECIPIENT } from '@/lib/mail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Empfänger der Sponsoren-Anfragen
-const RECIPIENT = 'fclahrwest@aol.com';
 
 // Konservatives Limit: der Upload muss durch die Serverless-Funktion des
 // Hosters passen (Vercel erlaubt 4,5 MB pro Request). Base64 bläht die
@@ -110,8 +108,8 @@ export async function POST(request) {
       : '';
 
     const { error: sendError } = await resend.emails.send({
-      from: 'FC Lahr-West <noreply@fclahrwest.de>',
-      to: RECIPIENT,
+      from: MAIL_FROM,
+      to: MAIL_RECIPIENT,
       replyTo: String(email),
       subject: `Sponsoring-Anfrage von ${company}`,
       attachments: attachments.length ? attachments : undefined,

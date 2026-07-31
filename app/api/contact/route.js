@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { MAIL_FROM, MAIL_RECIPIENT } from '@/lib/mail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -20,8 +21,8 @@ export async function POST(request) {
     }
 
     const { error: sendError } = await resend.emails.send({
-      from: 'FC Lahr-West <noreply@fclahrwest.de>',
-      to: 'fclahrwest@aol.com',
+      from: MAIL_FROM,
+      to: MAIL_RECIPIENT,
       replyTo: email,
       subject: `Neue Kontaktanfrage von ${name}`,
       html: `
