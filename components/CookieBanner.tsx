@@ -130,21 +130,21 @@ export default function CookieBanner() {
                 onClick={rejectAll}
                 className="px-2 py-2 text-xs font-medium rounded-lg border border-border hover:bg-muted transition-colors"
               >
-                Reject all
+                Alle ablehnen
               </button>
               <button
                 type="button"
                 onClick={() => setConfigOpen(true)}
                 className="px-2 py-2 text-xs font-medium rounded-lg border border-primary text-primary hover:bg-primary/10 transition-colors"
               >
-                Configure
+                Einstellungen
               </button>
               <button
                 type="button"
                 onClick={acceptAll}
                 className="px-2 py-2 text-xs font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Accept all
+                Alle akzeptieren
               </button>
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function CookieBanner() {
               />
               <CategoryToggle
                 title="Funktionale Cookies"
-                description="Ermöglichen der Website, erweiterte Funktionalität und Personalisierung bereitzustellen, z.B. das Speichern Ihrer Spracheinstellungen."
+                description="Erlauben das Nachladen eingebetteter Inhalte von Drittanbietern. Davon hängt bei uns die Google-Maps-Karte im Kontaktbereich ab: Ohne diese Einwilligung bleibt sie ausgeblendet und es werden keine Daten an Google übertragen."
                 checked={functional}
                 onChange={setFunctional}
               />
@@ -223,21 +223,21 @@ export default function CookieBanner() {
                 onClick={rejectAll}
                 className="px-4 py-2.5 text-sm font-medium rounded-xl border border-border hover:bg-muted transition-colors"
               >
-                Reject all
+                Alle ablehnen
               </button>
               <button
                 type="button"
                 onClick={saveCustom}
                 className="px-4 py-2.5 text-sm font-medium rounded-xl border border-primary text-primary hover:bg-primary/10 transition-colors"
               >
-                Save settings
+                Auswahl speichern
               </button>
               <button
                 type="button"
                 onClick={acceptAll}
                 className="px-4 py-2.5 text-sm font-medium rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Accept all
+                Alle akzeptieren
               </button>
             </div>
           </div>
