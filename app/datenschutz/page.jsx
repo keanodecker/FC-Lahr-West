@@ -8,7 +8,7 @@ export default function DatenschutzPage() {
     <div className="min-h-screen bg-background pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold mb-2">Datenschutzerklärung</h1>
-        <p className="text-muted-foreground mb-10">Stand: Mai 2026</p>
+        <p className="text-muted-foreground mb-10">Stand: Juli 2026</p>
 
         <Section title="1. Verantwortlicher">
           <p>
@@ -106,21 +106,44 @@ export default function DatenschutzPage() {
           </p>
         </Section>
 
-        <Section title="5. Google Maps">
+        <Section title="5. Sponsoren-Anfrageformular">
           <p>
-            Diese Seite nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited,
-            Gordon House, Barrow Street, Dublin 4, Irland. Zur Nutzung der Funktionen von Google Maps
-            ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel
-            an einen Server von Google in den USA übertragen und dort gespeichert. Der Anbieter dieser
-            Seite hat keinen Einfluss auf diese Datenübertragung. Die Nutzung von Google Maps erfolgt
-            im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten
-            Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes
-            Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Mehr Informationen zum Umgang mit
-            Nutzerdaten finden Sie in der Datenschutzerklärung von Google.
+            Auf unserer Sponsoren-Seite bieten wir ein gesondertes Anfrageformular an. Die dort
+            eingegebenen Angaben (Firma, Ansprechpartner, E-Mail-Adresse, Telefonnummer, Art des
+            Interesses sowie Ihre Nachricht) verarbeiten wir ausschließlich zur Bearbeitung Ihrer
+            Sponsoring-Anfrage. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)
+            sowie – sofern die Anfrage auf den Abschluss einer Sponsoring-Vereinbarung gerichtet ist –
+            Art. 6 Abs. 1 lit. b DSGVO. Auch hier erfolgt der Versand über den Dienst Resend. Die
+            Daten geben wir nicht ohne Ihre Einwilligung an Dritte weiter und löschen sie, sobald sie
+            für den Zweck der Anfrage nicht mehr erforderlich sind und keine gesetzlichen
+            Aufbewahrungspflichten entgegenstehen.
           </p>
         </Section>
 
-        <Section title="6. Ihre Rechte">
+        <Section title="6. Google Maps (nur nach Einwilligung)">
+          <p className="mb-3">
+            Zur Darstellung unseres Standorts binden wir den Kartendienst Google Maps ein. Anbieter
+            ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+          </p>
+          <p className="mb-3">
+            <strong className="text-foreground">
+              Die Karte wird erst geladen, wenn Sie funktionale Cookies zugelassen haben.
+            </strong>{' '}
+            Solange keine Einwilligung vorliegt, wird an dieser Stelle lediglich ein Platzhalter
+            angezeigt und es findet <em>keine</em> Verbindung zu Google statt. Erst wenn Sie
+            einwilligen, wird die Karte nachgeladen und dabei Ihre IP-Adresse an Google übertragen;
+            diese Informationen werden in der Regel an einen Server von Google in den USA übertragen
+            und dort gespeichert. Rechtsgrundlage ist Ihre Einwilligung
+            (Art. 6 Abs. 1 lit. a DSGVO).
+          </p>
+          <p>
+            Sie können Ihre Einwilligung jederzeit über den Link &bdquo;Cookie-Einstellungen&ldquo;
+            im Footer widerrufen. Die Karte wird dann sofort wieder ausgeblendet. Mehr Informationen
+            zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google.
+          </p>
+        </Section>
+
+        <Section title="7. Ihre Rechte">
           <p className="mb-3">Sie haben das Recht:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>gemäß Art. 15 DSGVO Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen;</li>
@@ -133,7 +156,7 @@ export default function DatenschutzPage() {
           </ul>
         </Section>
 
-        <Section title="7. Widerrufsrecht">
+        <Section title="8. Widerrufsrecht">
           <p>
             Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit zu
             widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der
@@ -143,9 +166,9 @@ export default function DatenschutzPage() {
           </p>
         </Section>
 
-        <Section title="8. Aktualität und Änderung dieser Datenschutzerklärung">
+        <Section title="9. Aktualität und Änderung dieser Datenschutzerklärung">
           <p>
-            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch die
+            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Juli 2026. Durch die
             Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher
             beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese
             Datenschutzerklärung zu ändern.

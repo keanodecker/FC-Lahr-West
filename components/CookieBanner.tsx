@@ -29,6 +29,9 @@ function loadConsent(): StoredConsent | null {
 function saveConsent(prefs: ConsentPreferences) {
   const stored: StoredConsent = { ...prefs, timestamp: new Date().toISOString() };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+  // Eingebettete Dienste (z. B. die Google-Karte) hören darauf und blenden
+  // sich sofort ein oder aus – ohne dass die Seite neu geladen werden muss.
+  window.dispatchEvent(new Event('cookieConsentChanged'));
 }
 
 export default function CookieBanner() {

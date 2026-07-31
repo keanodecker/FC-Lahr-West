@@ -8,6 +8,7 @@ import * as z from 'zod';
 import { toast } from 'sonner';
 import ScrollTriggerFadeIn from './ScrollTriggerFadeIn';
 import ScrollTriggerSlideIn from './ScrollTriggerSlideIn';
+import ConsentGatedMap from './ConsentGatedMap';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -222,15 +223,10 @@ export default function ContactSection() {
         <div className="mt-12">
           <ScrollTriggerFadeIn>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-border h-80">
-              <iframe
+              <ConsentGatedMap
                 title="FC Lahr-West Standort"
                 src="https://maps.google.com/maps?q=Flugplatzstra%C3%9Fe+105,+77933+Lahr&output=embed&hl=de"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                mapsUrl={mapsUrl}
               />
             </div>
           </ScrollTriggerFadeIn>

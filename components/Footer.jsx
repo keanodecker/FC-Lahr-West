@@ -89,7 +89,7 @@ export default function Footer() {
             <p>&copy; 2026 FC Lahr-West 1975 e.V. Alle Rechte vorbehalten.</p>
             <div className="flex gap-6">
               <Link href="/datenschutz" className="hover:text-primary transition-all duration-200">Datenschutz</Link>
-              <a href="#" className="hover:text-primary transition-all duration-200">Impressum</a>
+              <Link href="/impressum" className="hover:text-primary transition-all duration-200">Impressum</Link>
               <button
                 onClick={openCookieBanner}
                 className="hover:text-primary transition-all duration-200"
