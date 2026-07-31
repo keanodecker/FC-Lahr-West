@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Mail, Phone, MapPin, Send, ExternalLink, Star } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ExternalLink } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name muss mindestens 2 Zeichen lang sein'),
@@ -71,17 +71,7 @@ export default function ContactSection() {
                 />
                 <div>
                   <h3 className="text-2xl font-semibold">FC Lahr-West 1975 e.V.</h3>
-                  <div className="flex items-center gap-1 mt-2">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm text-muted-foreground ml-2">3.9 (14 Bewertungen)</span>
-                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">Gegründet 1975 · Lahr/Schwarzwald</p>
                 </div>
               </div>
 

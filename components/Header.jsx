@@ -25,6 +25,7 @@ export default function Header() {
     { label: 'Mitglied werden', href: '/mitglied-werden' },
     { label: 'Über uns', href: '/about' },
     { label: 'Mannschaften', href: '/teams' },
+    { label: 'Sponsoren', href: '/sponsoren' },
     { label: 'FAQ', href: '/faq' },
   ];
 
@@ -41,10 +42,13 @@ export default function Header() {
             className="flex items-center transition-all duration-200 hover:opacity-80"
             aria-label="FC Lahr-West 1975 e.V. - Zur Startseite"
           >
+            {/* logo-mark.png ist die freigestellte Variante ohne transparenten
+                Rand – dadurch wirkt das Wappen deutlich größer, ohne dass die
+                Höhe der Navigationsleiste (h-16 / md:h-20) sich ändert. */}
             <img
-              src="/logo.png"
+              src="/logo-mark.png"
               alt="FC Lahr-West 1975 e.V. Logo"
-              className="h-12 md:h-16 w-auto object-contain"
+              className="h-[54px] md:h-[72px] w-auto object-contain"
             />
           </Link>
 
@@ -88,9 +92,9 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px]">
               <div className="flex flex-col gap-6 mt-8">
                 <img
-                  src="/logo.png"
+                  src="/logo-mark.png"
                   alt="FC Lahr-West 1975 e.V. Logo"
-                  className="h-12 w-auto object-contain"
+                  className="h-14 w-auto object-contain"
                 />
                 {navLinks.map((link) => (
                   <Link
