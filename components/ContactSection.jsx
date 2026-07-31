@@ -214,6 +214,17 @@ export default function ContactSection() {
                       </>
                     )}
                   </Button>
+
+                  <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                    Große Designs bitte direkt an{' '}
+                    <a
+                      href="mailto:mail@cesardienstleistungen.de"
+                      className="text-primary hover:underline"
+                    >
+                      mail@cesardienstleistungen.de
+                    </a>{' '}
+                    schicken.
+                  </p>
                 </form>
               </Form>
             </div>
