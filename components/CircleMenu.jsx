@@ -17,9 +17,12 @@ const MENU = {
   startAngle: 16,
   endAngle: 94,
   stagger: 0.035,
-  // Ohne diese Verzögerung klappt das Menü zu, sobald die Maus die Lücke
-  // zwischen Wappen und erstem Punkt überquert.
-  closeDelay: 220,
+  // Zwischen Wappen und Menüpunkten liegt eine gute Bildschirmhälfte Luft.
+  // Solange die Maus dort unterwegs ist, zeigt sie auf nichts – das Menü darf
+  // deshalb nicht sofort zuklappen, sondern lässt zwei Sekunden Zeit, einen
+  // Punkt anzusteuern. Ein Klick auf einen Punkt und Escape schließen weiterhin
+  // sofort.
+  closeDelay: 2000,
 };
 
 function pointOnArc(index, total, radius, startAngle, endAngle) {

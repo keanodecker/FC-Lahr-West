@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import { MAIL_FROM, MAIL_RECIPIENT } from '@/lib/mail';
+import { MAIL_FROM, CONTACT_RECIPIENT } from '@/lib/mail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -22,7 +22,7 @@ export async function POST(request) {
 
     const { error: sendError } = await resend.emails.send({
       from: MAIL_FROM,
-      to: MAIL_RECIPIENT,
+      to: CONTACT_RECIPIENT,
       replyTo: email,
       subject: `Neue Kontaktanfrage von ${name}`,
       html: `
