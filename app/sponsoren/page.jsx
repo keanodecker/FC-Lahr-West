@@ -7,7 +7,7 @@ import { Shirt, Fence, Users, Heart, MapPin, Handshake, ArrowRight, Phone } from
 export const metadata = {
   title: 'Sponsoren & Partner – FC Lahr-West 1975 e.V.',
   description:
-    'Werden Sie Partner des FC Lahr-West 1975 e.V. – mit Trikotwerbung oder Bandenwerbung am Sportplatz. Jetzt unverbindlich anfragen und Designs direkt einreichen.',
+    'Werden Sie Partner des FC Lahr-West 1975 e.V. – mit Trikotwerbung oder Bandenwerbung am Sportplatz. Jetzt unverbindlich anfragen.',
 };
 
 const packages = [
@@ -184,8 +184,8 @@ export default function SponsorenPage() {
               Anfrage stellen
             </h2>
             <p className="text-lg text-muted-foreground text-center mb-12">
-              Unverbindlich und in zwei Minuten ausgefüllt. Sie können Ihr Logo oder ein fertiges
-              Design gleich mitschicken – wir melden uns zeitnah bei Ihnen zurück.
+              Unverbindlich und in zwei Minuten ausgefüllt. Wir melden uns zeitnah bei Ihnen
+              zurück und besprechen alles Weitere persönlich.
             </p>
           </ScrollTriggerFadeIn>
 

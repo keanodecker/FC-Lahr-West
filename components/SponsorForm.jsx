@@ -6,10 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Send, Upload, X, FileText } from 'lucide-react';
-
-const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
-const ACCEPT = '.ai,.eps,.pdf,.svg,.cdr,.png,.jpg,.jpeg,.webp,.tif,.tiff,.zip';
+import { Send } from 'lucide-react';
 
 const interests = [
   { value: 'trikot', label: 'Trikotwerbung' },
@@ -18,52 +15,17 @@ const interests = [
   { value: 'sonstiges', label: 'Noch offen' },
 ];
 
-function formatSize(bytes) {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
-  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
-}
-
 export default function SponsorForm() {
-  const [files, setFiles] = useState([]);
   const [interest, setInterest] = useState('trikot');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const fileInputRef = useRef(null);
   const formRef = useRef(null);
-
-  const totalBytes = files.reduce((sum, f) => sum + f.size, 0);
-  const tooLarge = totalBytes > MAX_UPLOAD_BYTES;
-
-  const handleFileChange = (e) => {
-    const picked = Array.from(e.target.files || []);
-    setFiles((prev) => {
-      const merged = [...prev];
-      picked.forEach((f) => {
-        if (!merged.some((m) => m.name === f.name && m.size === f.size)) merged.push(f);
-      });
-      return merged;
-    });
-    // damit dieselbe Datei erneut ausgewählt werden kann
-    e.target.value = '';
-  };
-
-  const removeFile = (index) => {
-    setFiles((prev) => prev.filter((_, i) => i !== index));
-  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    if (tooLarge) {
-      toast.error('Die Dateien sind zusammen zu groß. Bitte nutzen Sie das Link-Feld darunter.');
-      return;
-    }
-
     setIsSubmitting(true);
+
     try {
       const data = new FormData(formRef.current);
-      data.delete('files');
-      files.forEach((f) => data.append('files', f));
       data.set('interest', interest);
 
       const res = await fetch('/api/sponsoring', { method: 'POST', body: data });
@@ -72,7 +34,6 @@ export default function SponsorForm() {
       if (res.ok) {
         toast.success('Vielen Dank! Ihre Anfrage ist bei uns – wir melden uns zeitnah.');
         formRef.current.reset();
-        setFiles([]);
         setInterest('trikot');
       } else {
         toast.error(json.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.');
@@ -137,94 +98,19 @@ export default function SponsorForm() {
         />
       </div>
 
-      {/* Datei-Upload */}
-      <div className="space-y-3">
-        <Label>Logo oder Design mitschicken</Label>
-
-        <button
-          type="button"
-          onClick={() => fileInputRef.current?.click()}
-          className="w-full border-2 border-dashed border-border rounded-xl p-6 text-center
-                     hover:border-primary hover:bg-primary/5 transition-all duration-200"
-        >
-          <Upload className="h-6 w-6 text-primary mx-auto mb-2" />
-          <span className="block text-sm font-medium">Dateien auswählen</span>
-          <span className="block text-xs text-muted-foreground mt-1">
-            AI, EPS, PDF, SVG, CDR, PNG, JPG, TIF oder ZIP · zusammen max. 4 MB
-          </span>
-        </button>
-
-        <div className="bg-muted/60 border border-border rounded-xl p-4 text-xs text-muted-foreground leading-relaxed">
-          <p className="font-medium text-foreground mb-1">Hinweis zu den Druckdaten</p>
-          Für Trikots und Werbebanden brauchen wir das Logo idealerweise als{' '}
-          <strong className="text-foreground">Vektordatei</strong> (AI, EPS, PDF oder SVG) –
-          nur die lässt sich verlustfrei auf jede Größe skalieren. Schriften bitte in Pfade
-          umwandeln und Farben möglichst in CMYK oder als HKS-/Pantone-Angabe.
-          <br />
-          Sie haben nur ein JPG oder PNG? Kein Problem – schicken Sie es einfach mit, wir
-          klären die Aufbereitung mit unserer Druckerei.
-        </div>
-
-        <input
-          ref={fileInputRef}
-          type="file"
-          name="files"
-          multiple
-          accept={ACCEPT}
-          onChange={handleFileChange}
-          className="sr-only"
-        />
-
-        {files.length > 0 && (
-          <ul className="space-y-2">
-            {files.map((file, index) => (
-              <li
-                key={`${file.name}-${index}`}
-                className="flex items-center gap-3 bg-muted rounded-lg px-3 py-2 text-sm"
-              >
-                <FileText className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="flex-1 truncate">{file.name}</span>
-                <span className="text-xs text-muted-foreground flex-shrink-0">
-                  {formatSize(file.size)}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => removeFile(index)}
-                  aria-label={`${file.name} entfernen`}
-                  className="text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {files.length > 0 && (
-          <p className={`text-xs ${tooLarge ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
-            {formatSize(totalBytes)} von 4 MB belegt
-            {tooLarge && ' – zu groß, bitte nutzen Sie stattdessen das Link-Feld.'}
-          </p>
-        )}
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="fileLink">Link zu großen Dateien</Label>
-        <Input
-          id="fileLink"
-          name="fileLink"
-          type="url"
-          placeholder="https://wetransfer.com/…"
-        />
-        <p className="text-xs text-muted-foreground">
-          Für druckfertige Daten über 4 MB: einfach per WeTransfer, Dropbox oder Google Drive
-          hochladen und den Link hier einfügen.
-        </p>
+      {/* Der Datei-Upload ist vorerst deaktiviert. Logo und Druckdaten klären
+          wir nach der Anfrage direkt per E-Mail – so läuft es in der Branche
+          ohnehin meistens. Die Gegenstelle in app/api/sponsoring nimmt
+          Anhänge weiterhin entgegen, falls wir das später wieder aktivieren. */}
+      <div className="bg-muted/60 border border-border rounded-xl p-4 text-xs text-muted-foreground leading-relaxed">
+        <p className="font-medium text-foreground mb-1">Logo und Druckdaten</p>
+        Schicken Sie hier noch keine Dateien mit – wir melden uns nach Ihrer Anfrage per
+        E-Mail und stimmen Logo, Format und Druckdaten dann in Ruhe direkt mit Ihnen ab.
       </div>
 
       <Button
         type="submit"
-        disabled={isSubmitting || tooLarge}
+        disabled={isSubmitting}
         className="w-full transition-all duration-200 active:scale-[0.98]"
       >
         {isSubmitting ? (
