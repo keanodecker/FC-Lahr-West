@@ -19,7 +19,7 @@ export default function DatenschutzPage() {
             <p>Flugplatzstraße 105</p>
             <p>77933 Lahr/Schwarzwald</p>
             <p>Telefon: 07821 4913</p>
-            <p>E-Mail: fclahrwest@aol.com</p>
+            <p>E-Mail: alex.roccaro@web.de</p>
           </address>
         </Section>
 

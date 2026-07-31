@@ -12,7 +12,7 @@ const faqs = [
   {
     question: 'Wie kann ich Mitglied beim FC Lahr-West werden?',
     answer:
-      'Um Mitglied zu werden, kontaktiere uns einfach telefonisch unter 07821 4913 oder per E-Mail an fclahrwest@aol.com. Wir freuen uns über jeden, der unsere Leidenschaft für den Fußball teilt – egal ob jung oder alt.',
+      'Um Mitglied zu werden, kontaktiere uns einfach telefonisch unter 07821 4913 oder per E-Mail an alex.roccaro@web.de. Wir freuen uns über jeden, der unsere Leidenschaft für den Fußball teilt – egal ob jung oder alt.',
   },
   {
     question: 'Wie kann ich ein Probetraining vereinbaren?',

@@ -163,8 +163,8 @@ export default function VereinshausPage() {
                   <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold mb-1">E-Mail</p>
-                    <a href="mailto:fclahrwest@aol.com" className="opacity-80 hover:opacity-100 hover:underline">
-                      fclahrwest@aol.com
+                    <a href="mailto:alex.roccaro@web.de" className="opacity-80 hover:opacity-100 hover:underline">
+                      alex.roccaro@web.de
                     </a>
                   </div>
                 </div>

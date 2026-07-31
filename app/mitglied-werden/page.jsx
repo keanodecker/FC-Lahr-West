@@ -266,10 +266,10 @@ export default function MitgliedWerdenPage() {
               <div>
                 <p className="font-semibold mb-2">E-Mail</p>
                 <a
-                  href="mailto:fclahrwest@aol.com"
+                  href="mailto:alex.roccaro@web.de"
                   className="opacity-80 text-sm hover:opacity-100 hover:underline"
                 >
-                  fclahrwest@aol.com
+                  alex.roccaro@web.de
                 </a>
               </div>
             </div>

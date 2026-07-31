@@ -52,8 +52,8 @@ export default function ImpressumPage() {
           </p>
           <p>
             E-Mail:{' '}
-            <a href="mailto:fclahrwest@aol.com" className="text-primary hover:underline">
-              fclahrwest@aol.com
+            <a href="mailto:alex.roccaro@web.de" className="text-primary hover:underline">
+              alex.roccaro@web.de
             </a>
           </p>
         </Section>
