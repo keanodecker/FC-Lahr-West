@@ -142,7 +142,15 @@ export default function SponsorForm() {
       <div className="bg-muted/60 border border-border rounded-xl p-4 text-xs text-muted-foreground leading-relaxed">
         <p className="font-medium text-foreground mb-1">Logo und Druckdaten</p>
         Schicken Sie hier noch keine Dateien mit – wir melden uns nach Ihrer Anfrage per
-        E-Mail und stimmen Logo, Format und Druckdaten dann in Ruhe direkt mit Ihnen ab.
+        E-Mail und stimmen Logo, Format und Druckdaten dann in Ruhe direkt mit Ihnen ab. Große
+        Designs können Sie direkt an{' '}
+        <a
+          href="mailto:mail@cesardienstleistungen.de"
+          className="text-primary hover:underline"
+        >
+          mail@cesardienstleistungen.de
+        </a>{' '}
+        schicken.
       </div>
 
       <Button
