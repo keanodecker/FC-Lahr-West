@@ -30,13 +30,25 @@ function extensionOf(filename) {
 const INTEREST_LABELS = {
   trikot: 'Trikotwerbung',
   bande: 'Bandenwerbung',
-  beides: 'Trikot- und Bandenwerbung',
   anderes: 'Etwas anderes (siehe Nachricht)',
   offen: 'Noch offen',
-  // Altwert aus einer früheren Fassung des Formulars – bleibt stehen, damit
-  // eine noch offene Seite im Browser keine kryptische Mail erzeugt.
+  // Altwerte aus früheren Fassungen des Formulars – bleiben stehen, damit eine
+  // noch offene Seite im Browser keine kryptische Mail erzeugt.
+  beides: 'Trikot- und Bandenwerbung',
   sonstiges: 'Sonstiges / noch offen',
 };
+
+// Das Formular überträgt die Auswahl als kommagetrennte Liste (Mehrfachauswahl).
+// Jeder Wert wird auf sein Label abgebildet; unbekannte Werte werden
+// unverändert übernommen, damit nichts stillschweigend verloren geht.
+function formatInterest(raw) {
+  return String(raw ?? '')
+    .split(',')
+    .map((v) => v.trim())
+    .filter(Boolean)
+    .map((v) => INTEREST_LABELS[v] || v)
+    .join(', ');
+}
 
 function escapeHtml(str) {
   return String(str ?? '')
@@ -121,7 +133,7 @@ export async function POST(request) {
             ${row('Ansprechpartner', escapeHtml(contact))}
             ${row('E-Mail', `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>`)}
             ${row('Telefon', phone ? `<a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a>` : '')}
-            ${row('Interesse', escapeHtml(INTEREST_LABELS[interest] || interest))}
+            ${row('Interesse', escapeHtml(formatInterest(interest)))}
             ${row('Datei-Link', fileLink ? `<a href="${escapeHtml(fileLink)}">${escapeHtml(fileLink)}</a>` : '')}
           </table>
 

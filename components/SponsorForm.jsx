@@ -11,27 +11,43 @@ import { Send } from 'lucide-react';
 const interests = [
   { value: 'trikot', label: 'Trikotwerbung' },
   { value: 'bande', label: 'Bandenwerbung' },
-  { value: 'beides', label: 'Beides' },
   { value: 'anderes', label: 'Etwas anderes' },
   { value: 'offen', label: 'Noch offen' },
 ];
 
 export default function SponsorForm() {
-  const [interest, setInterest] = useState('trikot');
+  // Mehrfachauswahl: „Beides“ entfällt, man wählt einfach Trikot- und
+  // Bandenwerbung zusammen an.
+  const [selected, setSelected] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef(null);
 
+  const toggleInterest = (value) => {
+    setSelected((current) =>
+      current.includes(value) ? current.filter((v) => v !== value) : [...current, value]
+    );
+  };
+
   // Bei „Etwas anderes“ steht im Formular sonst nichts Verwertbares – ohne ein
   // paar Zeilen wüssten wir nicht, worum es überhaupt geht.
-  const needsDetails = interest === 'anderes';
+  const needsDetails = selected.includes('anderes');
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (selected.length === 0) {
+      toast.error('Bitte wählen Sie mindestens eine Möglichkeit aus.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       const data = new FormData(formRef.current);
-      data.set('interest', interest);
+      // Die Reihenfolge der Buttons beibehalten, nicht die Klick-Reihenfolge –
+      // so liest sich die Anfrage in der Mail immer gleich.
+      const ordered = interests.filter((o) => selected.includes(o.value)).map((o) => o.value);
+      data.set('interest', ordered.join(','));
 
       const res = await fetch('/api/sponsoring', { method: 'POST', body: data });
       const json = await res.json().catch(() => ({}));
@@ -39,7 +55,7 @@ export default function SponsorForm() {
       if (res.ok) {
         toast.success('Vielen Dank! Ihre Anfrage ist bei uns – wir melden uns zeitnah.');
         formRef.current.reset();
-        setInterest('trikot');
+        setSelected([]);
       } else {
         toast.error(json.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.');
       }
@@ -75,27 +91,31 @@ export default function SponsorForm() {
         <div className="space-y-1">
           <Label>Woran haben Sie Interesse?</Label>
           <p className="text-xs text-muted-foreground leading-relaxed">
-            Trikot- und Bandenwerbung sind unsere gängigsten Wege. Sie haben etwas anderes im
-            Sinn – etwa eine Aktion, eine Sachspende oder die Unterstützung einer einzelnen
-            Mannschaft? Wählen Sie „Etwas anderes“ und schreiben Sie uns kurz, was Ihnen vorschwebt.
+            Mehrfachauswahl möglich. Trikot- und Bandenwerbung sind unsere gängigsten Wege. Sie
+            haben etwas anderes im Sinn – etwa eine Aktion, eine Sachspende oder die Unterstützung
+            einer einzelnen Mannschaft? Wählen Sie „Etwas anderes“ und schreiben Sie uns kurz, was
+            Ihnen vorschwebt.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {interests.map((option) => (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => setInterest(option.value)}
-              aria-pressed={interest === option.value}
-              className={`px-4 py-2 rounded-xl border text-sm font-medium transition-all duration-200 ${
-                interest === option.value
-                  ? 'bg-primary text-primary-foreground border-primary'
-                  : 'bg-background border-border text-foreground hover:border-primary'
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
+          {interests.map((option) => {
+            const active = selected.includes(option.value);
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => toggleInterest(option.value)}
+                aria-pressed={active}
+                className={`px-4 py-2 rounded-xl border text-sm font-medium transition-all duration-200 ${
+                  active
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-background border-border text-foreground hover:border-primary'
+                }`}
+              >
+                {option.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
