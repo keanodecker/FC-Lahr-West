@@ -17,7 +17,11 @@ export default function StatisticsSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/team-wide.jpg)',
+          // Zwei Ebenen: das Stimmungsbild liegt oben, das eigene Foto darunter.
+          // Lädt die erste URL nicht, wird sie einfach nicht gezeichnet und die
+          // zweite bleibt sichtbar – ganz ohne JavaScript.
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1700917488610-2b4abd28e5a3?w=1600&q=80), url(/team-wide.jpg)',
         }}
       >
         {/* Deutlich transparenter als zuvor (war /90), damit das Mannschaftsfoto

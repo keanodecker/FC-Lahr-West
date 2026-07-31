@@ -2,22 +2,27 @@
 
 import ScrollTriggerFadeIn from './ScrollTriggerFadeIn';
 import HoverGlowCard from './HoverGlowCard';
+import ImageWithFallback from './ImageWithFallback';
 import { Users } from 'lucide-react';
 
+// image: das ursprüngliche Stimmungsbild. fallback: ein Ausschnitt aus dem
+// eigenen Mannschaftsfoto, der einspringt, falls das externe Bild nicht lädt.
 const teams = [
   {
     name: '1. Herren',
     league: 'Kreisliga B Staffel III',
     description:
       'Unsere erste Mannschaft kämpft mit vollem Einsatz in der Kreisliga B.',
-    image: '/team-1-herren.jpg',
+    image: 'https://images.unsplash.com/photo-1529932892568-43f5d5c07da5?w=1200&q=80',
+    fallback: '/team-1-herren.jpg',
   },
   {
     name: '2. Herren',
     league: 'Freundschaftsspiele',
     description:
       'Die zweite Mannschaft bestreitet regelmäßig Freundschaftsspiele und fördert den Teamgeist.',
-    image: '/team-2-herren.jpg',
+    image: 'https://images.unsplash.com/photo-1518091043644-c1d4457512c6?w=1200&q=80',
+    fallback: '/team-2-herren.jpg',
   },
 ];
 
@@ -36,9 +41,10 @@ export default function TeamsSection() {
             <ScrollTriggerFadeIn key={team.name} delay={index * 0.2} className="h-full">
               <HoverGlowCard className="bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 h-full flex flex-col">
                 <div className="relative h-64 flex-shrink-0">
-                  <img
+                  <ImageWithFallback
                     src={team.image}
-                    alt={`Mannschaftsfoto ${team.name} des FC Lahr-West 1975 e.V.`}
+                    fallbackSrc={team.fallback}
+                    alt={`${team.name} des FC Lahr-West 1975 e.V.`}
                     className="w-full h-full object-cover"
                   />
                   {/* Nur der untere Bereich wird abgedunkelt, damit Liga und
