@@ -106,7 +106,7 @@ export default function CookieBanner() {
             transform: 'translateX(-50%)',
             zIndex: 2147483647,
             width: 'calc(100% - 2rem)',
-            maxWidth: '28rem',
+            maxWidth: '32rem',
             pointerEvents: 'auto',
           }}
         >
@@ -124,13 +124,15 @@ export default function CookieBanner() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-2">
+            {/* Auf schmalen Displays untereinander, damit "Nur notwendige
+                Cookies" auf eine Zeile passt; ab sm nebeneinander. */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <button
                 type="button"
                 onClick={rejectAll}
                 className="px-2 py-2 text-xs font-medium rounded-lg border border-border hover:bg-muted transition-colors"
               >
-                Alle ablehnen
+                Nur notwendige Cookies
               </button>
               <button
                 type="button"
@@ -237,7 +239,7 @@ export default function CookieBanner() {
                 onClick={acceptAll}
                 className="px-4 py-2.5 text-sm font-medium rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
               >
-                Alle akzeptieren
+                Zustimmen
               </button>
             </div>
           </div>
