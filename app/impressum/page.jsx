@@ -4,16 +4,22 @@ export const metadata = {
 };
 
 /**
- * NOCH ZU ERGÄNZEN: Registergericht und Vereinsregisternummer sind für einen
- * eingetragenen Verein Pflichtangaben nach § 5 DDG. Sobald die Daten vorliegen,
- * hier eintragen – die Platzhalter verschwinden dann automatisch.
+ * Das Registergericht ergibt sich aus dem Vereinssitz: Die Vereinsregister in
+ * Baden-Württemberg werden seit 2014 zentral bei den Amtsgerichten Freiburg,
+ * Mannheim, Stuttgart und Ulm geführt. Für den Ortenaukreis – und damit für
+ * Lahr – ist das Amtsgericht Freiburg zuständig.
+ *
+ * NOCH ZU ERGÄNZEN: die Vereinsregisternummer. Sie steht im Registerauszug und
+ * meist auch auf dem Freistellungsbescheid des Finanzamts. Vereine, die früher
+ * beim Amtsgericht Lahr geführt wurden, haben bei der Umstellung die Kennziffer
+ * 39 vorangestellt bekommen (Format: 'VR 39...'). Sobald die Nummer hier
+ * eingetragen ist, erscheint die Zeile automatisch im Impressum – bis dahin
+ * bleibt sie weg, statt eine erfundene Nummer auszuweisen.
  */
 const REGISTER = {
-  gericht: null, // z. B. 'Amtsgericht Freiburg i. Br.'
-  nummer: null, // z. B. 'VR 380123'
+  gericht: 'Amtsgericht Freiburg',
+  nummer: null,
 };
-
-const PLATZHALTER = '— bitte noch ergänzen —';
 
 export default function ImpressumPage() {
   return (
@@ -56,11 +62,13 @@ export default function ImpressumPage() {
           <p>
             Eintragung im Vereinsregister
             <br />
-            Registergericht:{' '}
-            {REGISTER.gericht ?? <span className="text-primary">{PLATZHALTER}</span>}
-            <br />
-            Registernummer:{' '}
-            {REGISTER.nummer ?? <span className="text-primary">{PLATZHALTER}</span>}
+            Registergericht: {REGISTER.gericht}
+            {REGISTER.nummer && (
+              <>
+                <br />
+                Registernummer: {REGISTER.nummer}
+              </>
+            )}
           </p>
         </Section>
 
