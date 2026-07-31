@@ -142,7 +142,9 @@ export default function SponsorenPage() {
           <ScrollTriggerFadeIn delay={0.3}>
             <p className="text-center text-muted-foreground mt-10 max-w-2xl mx-auto">
               Konditionen und Laufzeiten stimmen wir individuell mit Ihnen ab – schreiben Sie uns
-              einfach, was Sie sich vorstellen.
+              einfach, was Sie sich vorstellen. Und falls Ihnen etwas ganz anderes vorschwebt,
+              etwa eine gemeinsame Aktion, eine Sachspende oder die Unterstützung einer einzelnen
+              Mannschaft: Sprechen Sie uns an, wir sind für vieles offen.
             </p>
           </ScrollTriggerFadeIn>
         </div>

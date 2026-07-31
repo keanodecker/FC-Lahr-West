@@ -12,13 +12,18 @@ const interests = [
   { value: 'trikot', label: 'Trikotwerbung' },
   { value: 'bande', label: 'Bandenwerbung' },
   { value: 'beides', label: 'Beides' },
-  { value: 'sonstiges', label: 'Noch offen' },
+  { value: 'anderes', label: 'Etwas anderes' },
+  { value: 'offen', label: 'Noch offen' },
 ];
 
 export default function SponsorForm() {
   const [interest, setInterest] = useState('trikot');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef(null);
+
+  // Bei „Etwas anderes“ steht im Formular sonst nichts Verwertbares – ohne ein
+  // paar Zeilen wüssten wir nicht, worum es überhaupt geht.
+  const needsDetails = interest === 'anderes';
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +72,14 @@ export default function SponsorForm() {
       </div>
 
       <div className="space-y-3">
-        <Label>Woran haben Sie Interesse?</Label>
+        <div className="space-y-1">
+          <Label>Woran haben Sie Interesse?</Label>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Trikot- und Bandenwerbung sind unsere gängigsten Wege. Sie haben etwas anderes im
+            Sinn – etwa eine Aktion, eine Sachspende oder die Unterstützung einer einzelnen
+            Mannschaft? Wählen Sie „Etwas anderes“ und schreiben Sie uns kurz, was Ihnen vorschwebt.
+          </p>
+        </div>
         <div className="flex flex-wrap gap-2">
           {interests.map((option) => (
             <button
@@ -88,12 +100,17 @@ export default function SponsorForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">Nachricht</Label>
+        <Label htmlFor="message">Nachricht{needsDetails ? ' *' : ''}</Label>
         <Textarea
           id="message"
           name="message"
           rows={5}
-          placeholder="Erzählen Sie uns kurz, was Sie vorhaben – Zeitraum, Budgetrahmen, Wünsche…"
+          required={needsDetails}
+          placeholder={
+            needsDetails
+              ? 'Was schwebt Ihnen vor? Beschreiben Sie kurz Ihre Idee – wir schauen, wie wir sie umsetzen können.'
+              : 'Erzählen Sie uns kurz, was Sie vorhaben – Zeitraum, Budgetrahmen, Wünsche…'
+          }
           className="resize-none"
         />
       </div>

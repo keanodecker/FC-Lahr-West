@@ -33,6 +33,10 @@ const INTEREST_LABELS = {
   trikot: 'Trikotwerbung',
   bande: 'Bandenwerbung',
   beides: 'Trikot- und Bandenwerbung',
+  anderes: 'Etwas anderes (siehe Nachricht)',
+  offen: 'Noch offen',
+  // Altwert aus einer früheren Fassung des Formulars – bleibt stehen, damit
+  // eine noch offene Seite im Browser keine kryptische Mail erzeugt.
   sonstiges: 'Sonstiges / noch offen',
 };
 
