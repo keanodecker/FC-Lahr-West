@@ -3,9 +3,20 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Instagram } from 'lucide-react';
+import {
+  Menu,
+  Instagram,
+  Home,
+  UserPlus,
+  Info,
+  Users,
+  Handshake,
+  HelpCircle,
+  Mail,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import CircleMenu from '@/components/CircleMenu';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,12 +32,20 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Startseite', href: '/' },
-    { label: 'Mitglied werden', href: '/mitglied-werden' },
-    { label: 'Über uns', href: '/about' },
-    { label: 'Mannschaften', href: '/teams' },
-    { label: 'Sponsoren', href: '/sponsoren' },
-    { label: 'FAQ', href: '/faq' },
+    { label: 'Startseite', href: '/', icon: Home },
+    { label: 'Mitglied werden', href: '/mitglied-werden', icon: UserPlus },
+    { label: 'Über uns', href: '/about', icon: Info },
+    { label: 'Mannschaften', href: '/teams', icon: Users },
+    { label: 'Sponsoren', href: '/sponsoren', icon: Handshake },
+    { label: 'FAQ', href: '/faq', icon: HelpCircle },
+  ];
+
+  // Das Kreismenü am Wappen zeigt zusätzlich zu den Navigationspunkten die
+  // beiden Einträge, die in der Leiste rechts als Icon bzw. Button stehen.
+  const circleMenuItems = [
+    ...navLinks,
+    { label: 'Kontakt', href: '/#contact', icon: Mail },
+    { label: 'Instagram', href: 'https://instagram.com/fc_lahr_west', icon: Instagram },
   ];
 
   return (
@@ -37,20 +56,27 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
+          {/* logo-mark.png ist die freigestellte Variante ohne transparenten
+              Rand – dadurch wirkt das Wappen deutlich größer, ohne dass die
+              Höhe der Navigationsleiste (h-16 / md:h-20) sich ändert. */}
           <Link
             href="/"
-            className="flex items-center transition-all duration-200 hover:opacity-80"
+            className="flex items-center transition-all duration-200 hover:opacity-80 md:hidden"
             aria-label="FC Lahr-West 1975 e.V. - Zur Startseite"
           >
-            {/* logo-mark.png ist die freigestellte Variante ohne transparenten
-                Rand – dadurch wirkt das Wappen deutlich größer, ohne dass die
-                Höhe der Navigationsleiste (h-16 / md:h-20) sich ändert. */}
             <img
               src="/logo-mark.png"
               alt="FC Lahr-West 1975 e.V. Logo"
-              className="h-[54px] md:h-[72px] w-auto object-contain"
+              className="h-[54px] w-auto object-contain"
             />
           </Link>
+
+          {/* Auf dem Handy bleibt das Wappen ein reiner Link zur Startseite:
+              Dort gibt es kein Hovern, und das Hamburger-Menü deckt die
+              Navigation bereits ab. */}
+          <div className="hidden md:block">
+            <CircleMenu items={circleMenuItems} />
+          </div>
 
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
