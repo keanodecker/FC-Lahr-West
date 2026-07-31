@@ -16,12 +16,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            {/* Freigestellte Logo-Variante ohne transparenten Rand – dadurch
-                nutzt das Wappen die Anzeigehöhe wirklich aus. */}
             <img
-              src="/logo-mark.png"
+              src="/logo.png"
               alt="FC Lahr-West 1975 e.V. Logo"
-              className="h-28 md:h-32 w-auto object-contain mb-4"
+              className="h-16 w-auto object-contain mb-4"
             />
             <p className="text-sm opacity-80">Gegründet 1975</p>
             <p className="mt-2 text-sm opacity-80">Mitglied im Südbadischen Fußballverband</p>
