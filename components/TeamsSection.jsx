@@ -5,26 +5,26 @@ import HoverGlowCard from './HoverGlowCard';
 import ImageWithFallback from './ImageWithFallback';
 import { Users } from 'lucide-react';
 
-// 1. Herren: das eigene Mannschaftsfoto mit der ganzen Truppe – lädt immer,
-// deshalb ist image und fallback dieselbe Datei.
-// 2. Herren: ein Spielszenen-Bild; fällt auf einen Ausschnitt des eigenen
-// Fotos zurück, falls die externe Quelle nicht antwortet.
+// Beide Mannschaften zeigen eigene Vereinsfotos – lokal ausgeliefert, deshalb
+// ist image und fallback jeweils dieselbe Datei.
+// 1. Herren: das offizielle Mannschaftsfoto der Saison im Vereinstrikot.
+// 2. Herren: das Gruppenfoto der ganzen Truppe vom Trainingsgelände.
 const teams = [
   {
     name: '1. Herren',
     league: 'Kreisliga B Staffel III',
     description:
       'Unsere erste Mannschaft kämpft mit vollem Einsatz in der Kreisliga B.',
-    image: '/team-wide.jpg',
-    fallback: '/team-wide.jpg',
+    image: '/team-1-herren.jpg',
+    fallback: '/team-1-herren.jpg',
   },
   {
     name: '2. Herren',
     league: 'Freundschaftsspiele',
     description:
       'Die zweite Mannschaft bestreitet regelmäßig Freundschaftsspiele und fördert den Teamgeist.',
-    image: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1200&q=80',
-    fallback: '/team-2-herren.jpg',
+    image: '/team-wide.jpg',
+    fallback: '/team-wide.jpg',
   },
 ];
 
