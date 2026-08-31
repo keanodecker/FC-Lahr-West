@@ -213,7 +213,7 @@ export default function MitgliedWerdenPage() {
           className="absolute inset-0 opacity-40 bg-cover bg-center"
           style={{
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1600&q=80), url(/vereinsheim-kiosk.jpg)',
+              'url(https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1600&q=80), url(/vereinsheim-kiosk-2026.jpg)',
           }}
         />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
