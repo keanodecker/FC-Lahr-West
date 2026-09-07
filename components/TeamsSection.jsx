@@ -27,6 +27,10 @@ const teams = [
     league: 'Freundschaftsspiele',
     description:
       'Die zweite Mannschaft bestreitet regelmäßig Freundschaftsspiele und fördert den Teamgeist.',
+    // Beide Fotos der 2. Herren sind in praller Sonne entstanden und wirken
+    // neben dem im Schatten aufgenommenen Bild der 1. Herren ausgewaschen.
+    // 25 % abdunkeln gleicht das aus, damit die Karten zusammenpassen.
+    brightness: 0.75,
     images: [
       {
         src: '/team-2-herren-2026.jpg',
@@ -40,7 +44,7 @@ const teams = [
   },
 ];
 
-function TeamPhotos({ images, teamName }) {
+function TeamPhotos({ images, teamName, brightness }) {
   const [index, setIndex] = useState(0);
   const hasMultiple = images.length > 1;
 
@@ -55,6 +59,7 @@ function TeamPhotos({ images, teamName }) {
           alt={image.alt}
           aria-hidden={i !== index}
           className="absolute inset-0 h-full w-full object-cover"
+          style={brightness ? { filter: `brightness(${brightness})` } : undefined}
           initial={false}
           animate={{ opacity: i === index ? 1 : 0 }}
           transition={{ duration: 0.4, ease: 'easeInOut' }}
@@ -117,7 +122,11 @@ export default function TeamsSection() {
             <ScrollTriggerFadeIn key={team.name} delay={index * 0.2} className="h-full">
               <HoverGlowCard className="bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 h-full flex flex-col">
                 <div className="relative h-64 flex-shrink-0">
-                  <TeamPhotos images={team.images} teamName={team.name} />
+                  <TeamPhotos
+                    images={team.images}
+                    teamName={team.name}
+                    brightness={team.brightness}
+                  />
                   {/* Nur der untere Bereich wird abgedunkelt, damit Liga und
                       Mannschaftsname lesbar bleiben – das Foto selbst bleibt frei. */}
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-accent/85 via-accent/40 to-transparent" />
