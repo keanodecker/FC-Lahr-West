@@ -4,6 +4,9 @@ import ScrollTriggerFadeIn from './ScrollTriggerFadeIn';
 import HoverGlowCard from './HoverGlowCard';
 import { Phone, Mail, User } from 'lucide-react';
 
+// Die Porträts liegen bereits im Seitenverhältnis 4:5 vor – genau dem Rahmen,
+// in dem sie unten angezeigt werden. Dadurch schneidet der Browser nichts mehr
+// nach, und der Bildaufbau bleibt so, wie er zugeschnitten wurde.
 const trainers = [
   {
     name: 'Andi Paschke',
@@ -11,6 +14,7 @@ const trainers = [
     phone: '0176 21050524',
     phoneHref: 'tel:+4917621050524',
     email: null,
+    photo: '/trainer-paschke.jpg',
   },
   {
     name: 'Alexandro Roccaro',
@@ -18,6 +22,7 @@ const trainers = [
     phone: '0171 3274609',
     phoneHref: 'tel:+491713274609',
     email: 'alex.roccaro@web.de',
+    photo: '/trainer-roccaro.jpg',
   },
 ];
 
@@ -38,30 +43,45 @@ export default function TrainersSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {trainers.map((trainer, index) => (
             <ScrollTriggerFadeIn key={trainer.name} delay={index * 0.15}>
-              <HoverGlowCard className="bg-card border border-border rounded-2xl p-8 h-full flex flex-col items-center text-center transition-all duration-300">
-                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-5">
-                  <User className="h-10 w-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-1">{trainer.name}</h3>
-                <p className="text-primary font-medium mb-5">{trainer.role}</p>
+              <HoverGlowCard className="bg-card border border-border rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300">
+                {trainer.photo ? (
+                  <div className="relative w-full aspect-[4/5] bg-muted">
+                    <img
+                      src={trainer.photo}
+                      alt={`${trainer.name}, ${trainer.role} des FC Lahr-West 1975 e.V.`}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  // Ausweichmotiv, falls einmal ein Trainer ohne Foto dazukommt.
+                  <div className="w-full aspect-[4/5] bg-primary/10 flex items-center justify-center">
+                    <User className="h-16 w-16 text-primary" />
+                  </div>
+                )}
 
-                <div className="space-y-3 w-full mt-auto">
-                  <a
-                    href={trainer.phoneHref}
-                    className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Phone className="h-4 w-4 flex-shrink-0" />
-                    {trainer.phone}
-                  </a>
-                  {trainer.email && (
+                <div className="p-8 flex flex-col items-center text-center flex-grow">
+                  <h3 className="text-xl font-bold mb-1">{trainer.name}</h3>
+                  <p className="text-primary font-medium mb-5">{trainer.role}</p>
+
+                  <div className="space-y-3 w-full mt-auto">
                     <a
-                      href={`mailto:${trainer.email}`}
-                      className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors break-all"
+                      href={trainer.phoneHref}
+                      className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      <Mail className="h-4 w-4 flex-shrink-0" />
-                      {trainer.email}
+                      <Phone className="h-4 w-4 flex-shrink-0" />
+                      {trainer.phone}
                     </a>
-                  )}
+                    {trainer.email && (
+                      <a
+                        href={`mailto:${trainer.email}`}
+                        className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors break-all"
+                      >
+                        <Mail className="h-4 w-4 flex-shrink-0" />
+                        {trainer.email}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </HoverGlowCard>
             </ScrollTriggerFadeIn>
