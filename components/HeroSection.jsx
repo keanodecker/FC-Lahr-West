@@ -60,7 +60,7 @@ export default function HeroSection() {
       // Seite bei jedem Wechsel springen, deshalb gibt jetzt das Verhältnis des
       // ursprünglichen Hero-Fotos (1448x1014) den Rahmen vor – die Sektion ist
       // damit exakt so hoch wie zuvor.
-      className="relative w-full overflow-hidden aspect-[1448/1014]"
+      className="relative w-full overflow-hidden aspect-[1448/1014] min-h-[22rem] sm:min-h-0"
       aria-roledescription="Bildergalerie"
       aria-label="Mannschaften des FC Lahr-West"
       onMouseEnter={() => setPaused(true)}
@@ -84,17 +84,17 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 mt-8">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-0 sm:mt-8">
         <StaggeredLetterReveal
           text="FC Lahr-West 1975"
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 text-balance drop-shadow-lg"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-3 sm:mb-6 text-balance drop-shadow-lg"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="text-xl sm:text-2xl md:text-3xl text-white/90 mb-12 font-medium drop-shadow-md"
+          className="text-base sm:text-2xl md:text-3xl text-white/90 mb-6 sm:mb-12 font-medium drop-shadow-md"
         >
           Leidenschaft. Teamgeist. Heimat.
         </motion.p>
