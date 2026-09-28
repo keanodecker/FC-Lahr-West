@@ -9,10 +9,6 @@ import StaggeredLetterReveal from './StaggeredLetterReveal';
 
 const slides = [
   {
-    src: '/hero-team.jpg',
-    alt: 'Die Mannschaften des FC Lahr-West 1975 e.V. auf dem Sportplatz',
-  },
-  {
     src: '/team-1-herren.jpg',
     alt: 'Mannschaftsfoto der 1. Herren des FC Lahr-West 1975 e.V.',
   },
@@ -55,11 +51,9 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      // Früher bestimmte die Höhe des einen Fotos die Höhe der Sektion. Bei
-      // mehreren Motiven mit leicht unterschiedlichen Kantenlängen würde die
-      // Seite bei jedem Wechsel springen, deshalb gibt jetzt das Verhältnis des
-      // ursprünglichen Hero-Fotos (1448x1014) den Rahmen vor – die Sektion ist
-      // damit exakt so hoch wie zuvor.
+      // Ein festes Seitenverhältnis verhindert, dass die Seite bei jedem
+      // Bildwechsel springt. Es stammt vom früheren ersten Hero-Foto
+      // (1448x1014) und bleibt, damit die Sektion so hoch ist wie bisher.
       className="relative w-full overflow-hidden aspect-[1448/1014] min-h-[22rem] sm:min-h-0"
       aria-roledescription="Bildergalerie"
       aria-label="Mannschaften des FC Lahr-West"
