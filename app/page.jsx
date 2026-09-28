@@ -2,12 +2,7 @@
 
 import { useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import TrainersSection from '@/components/TrainersSection';
-import TeamsSection from '@/components/TeamsSection';
-import StatisticsSection from '@/components/StatisticsSection';
-import AchievementsSection from '@/components/AchievementsSection';
-import ContactSection from '@/components/ContactSection';
+import HomeSections from '@/components/HomeSections';
 
 export default function HomePage() {
   useEffect(() => {
@@ -27,12 +22,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
-      <AboutSection />
-      <TeamsSection />
-      <TrainersSection />
-      <StatisticsSection />
-      <AchievementsSection />
-      <ContactSection />
+      <HomeSections />
     </div>
   );
 }
