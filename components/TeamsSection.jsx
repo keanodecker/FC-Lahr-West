@@ -109,10 +109,10 @@ function TeamPhotos({ images, teamName, brightness }) {
 
 export default function TeamsSection() {
   return (
-    <section id="teams" className="py-20 md:py-24 bg-muted">
+    <section id="teams" className="py-14 md:py-24 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollTriggerFadeIn>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 md:mb-16 text-balance">
             Unsere Mannschaften
           </h2>
         </ScrollTriggerFadeIn>

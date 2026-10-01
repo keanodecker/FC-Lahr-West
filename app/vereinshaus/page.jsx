@@ -69,7 +69,7 @@ export default function VereinshausPage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-20 md:py-24 bg-background">
+      <section className="py-14 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollTriggerFadeIn>
             <div className="text-center mb-12">
@@ -93,7 +93,7 @@ export default function VereinshausPage() {
       </section>
 
       {/* Highlights */}
-      <section className="py-20 md:py-24 bg-muted">
+      <section className="py-14 md:py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollTriggerFadeIn>
             <div className="text-center mb-16">
@@ -121,7 +121,7 @@ export default function VereinshausPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-24 bg-background">
+      <section className="py-14 md:py-24 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollTriggerFadeIn>
             <div className="bg-accent text-accent-foreground rounded-2xl shadow-xl p-8 md:p-12 text-center">

@@ -97,12 +97,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-row gap-3 sm:gap-4 justify-center"
         >
           <Button
             size="lg"
             asChild
-            className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98] text-lg px-8 shadow-lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 active:scale-[0.98] h-11 px-5 text-base sm:h-10 sm:px-8 sm:text-lg shadow-lg"
           >
             <Link href="/teams">Jetzt Beitreten</Link>
           </Button>
@@ -110,7 +110,7 @@ export default function HeroSection() {
             size="lg"
             variant="secondary"
             onClick={() => handleScroll('#contact')}
-            className="bg-white text-foreground hover:bg-gray-100 transition-all duration-200 active:scale-[0.98] text-lg px-8 shadow-lg"
+            className="bg-white text-foreground hover:bg-gray-100 transition-all duration-200 active:scale-[0.98] h-11 px-5 text-base sm:h-10 sm:px-8 sm:text-lg shadow-lg"
           >
             Kontakt
           </Button>
@@ -157,7 +157,9 @@ export default function HeroSection() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
+        // Auf dem Handy säße der Pfeil direkt unter den Buttons und würde sie
+        // optisch bedrängen – dort reicht das Weiterscrollen per Daumen.
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer hidden sm:block"
         onClick={() => handleScroll('#about')}
       >
         <ChevronDown className="h-8 w-8 text-white drop-shadow-md" />

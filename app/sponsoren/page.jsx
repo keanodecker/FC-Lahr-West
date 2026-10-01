@@ -103,13 +103,13 @@ export default function SponsorenPage() {
       </section>
 
       {/* Möglichkeiten */}
-      <section className="py-20 md:py-24 bg-background">
+      <section className="py-14 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollTriggerFadeIn>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
               Ihre Möglichkeiten
             </h2>
-            <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16">
+            <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10 md:mb-16">
               Zwei Wege, Ihr Unternehmen bei uns sichtbar zu machen – gerne auch kombiniert.
             </p>
           </ScrollTriggerFadeIn>
@@ -151,10 +151,10 @@ export default function SponsorenPage() {
       </section>
 
       {/* Warum */}
-      <section className="py-20 md:py-24 bg-muted">
+      <section className="py-14 md:py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollTriggerFadeIn>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-balance">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 md:mb-16 text-balance">
               Warum FC Lahr-West?
             </h2>
           </ScrollTriggerFadeIn>
@@ -179,7 +179,7 @@ export default function SponsorenPage() {
       </section>
 
       {/* Anfrage-Formular */}
-      <section id="anfrage" className="py-20 md:py-24 bg-background scroll-mt-20">
+      <section id="anfrage" className="py-14 md:py-24 bg-background scroll-mt-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollTriggerFadeIn>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-balance">

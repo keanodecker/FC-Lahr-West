@@ -29,13 +29,13 @@ const milestones = [
 
 export default function RoadmapSection() {
   return (
-    <section id="roadmap" className="py-20 md:py-24 bg-muted">
+    <section id="roadmap" className="py-14 md:py-24 bg-muted">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollTriggerFadeIn>
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
             Wohin wir wollen
           </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-16">
+          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10 md:mb-16">
             Unser Weg für die kommenden Jahre – Schritt für Schritt, mit klarem Ziel.
           </p>
         </ScrollTriggerFadeIn>

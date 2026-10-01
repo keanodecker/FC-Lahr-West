@@ -64,7 +64,7 @@ export default function MitgliedWerdenPage() {
       </section>
 
       {/* Willkommens-Absatz */}
-      <section className="py-20 md:py-24 bg-background">
+      <section className="py-14 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollTriggerFadeIn>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-balance">
@@ -208,7 +208,7 @@ export default function MitgliedWerdenPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-24 bg-accent text-accent-foreground relative overflow-hidden">
+      <section className="py-14 md:py-24 bg-accent text-accent-foreground relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-40 bg-cover bg-center"
           style={{
