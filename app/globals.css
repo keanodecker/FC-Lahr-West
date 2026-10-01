@@ -12,6 +12,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
+  /* Lange deutsche Wörter wie „Datenschutzerklärung“ passen in großer Schrift
+     nicht auf schmale Handys und würden die Seite verbreitern. */
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 html {
