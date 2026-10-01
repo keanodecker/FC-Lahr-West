@@ -18,7 +18,11 @@ export default function RootLayout({ children }) {
     <html lang="de" suppressHydrationWarning>
       <body>
         <Providers>
-          <div className="min-h-screen flex flex-col relative">
+          {/* overflow-x-clip schneidet ab, was seitlich übersteht – etwa Inhalte,
+              die beim Einblenden von rechts hereingleiten. Das overflow-x am
+              body reicht dafür nicht: Mobile Browser verbreitern die Seite
+              trotzdem, und man kann sie nach links und rechts wischen. */}
+          <div className="min-h-screen flex flex-col relative overflow-x-clip">
             <ParticleSystem />
             <ScrollBlurOverlay />
             <Header />

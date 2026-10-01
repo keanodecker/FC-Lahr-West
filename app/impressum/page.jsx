@@ -25,7 +25,7 @@ export default function ImpressumPage() {
   return (
     <div className="min-h-screen bg-background pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold mb-2">Impressum</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-2">Impressum</h1>
         <p className="text-muted-foreground mb-10">
           Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)
         </p>
